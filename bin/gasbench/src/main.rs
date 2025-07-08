@@ -21,7 +21,7 @@ use crate::soltest::create_sol_test;
 use loom_node_debug_provider::AnvilDebugProviderFactory;
 
 use loom_defi_address_book::UniswapV2PoolAddress;
-use loom_types_entities::{Market, MarketState, PoolId, PoolWrapper, Swap, SwapAmountType, SwapLine};
+use loom_types_entities::{Market, MarketState, PoolId, PoolWrapper, Swap, SwapAmountType, SwapDirection, SwapLine};
 
 use loom_core_actors::SharedState;
 use loom_defi_preloader::preload_market_state;
@@ -106,7 +106,7 @@ async fn main() -> Result<()> {
 
     let swap_directions = pool.get_swap_directions();
 
-    let mut btree_map: BTreeMap<PoolWrapper, Vec<(Address, Address)>> = BTreeMap::new();
+    let mut btree_map: BTreeMap<PoolWrapper, Vec<SwapDirection>> = BTreeMap::new();
 
     btree_map.insert(pool.clone(), swap_directions);
 

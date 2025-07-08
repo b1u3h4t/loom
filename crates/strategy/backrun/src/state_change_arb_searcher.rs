@@ -3,7 +3,7 @@ use std::sync::Arc;
 
 use alloy_primitives::U256;
 #[cfg(not(debug_assertions))]
-use chrono::TimeDelta;
+
 use eyre::{eyre, ErrReport, Result};
 use influxdb::{Timestamp, WriteQuery};
 use rayon::prelude::*;
@@ -11,7 +11,7 @@ use rayon::{ThreadPool, ThreadPoolBuilder};
 use revm::{DatabaseCommit, DatabaseRef};
 use tokio::sync::broadcast::error::RecvError;
 #[cfg(not(debug_assertions))]
-use tracing::warn;
+
 use tracing::{debug, error, info, trace};
 
 use crate::BackrunConfig;

@@ -227,7 +227,13 @@ mod test {
         let token = Arc::new(Token::new(Address::random()));
 
         let sp0 = SwapLine {
-            path: SwapPath { tokens: vec![token.clone(), token.clone()], pools: vec![], disabled: false },
+            path: SwapPath {
+                tokens: vec![token.clone(), token.clone()],
+                pools: vec![],
+                disabled: false,
+                disabled_pool: Default::default(),
+                score: None,
+            },
             amount_in: SwapAmountType::Set(U256::from(1)),
             amount_out: SwapAmountType::Set(U256::from(2)),
             ..Default::default()
@@ -235,7 +241,13 @@ mod test {
         ready_requests.push(SwapComposeData { swap: Swap::BackrunSwapLine(sp0), ..SwapComposeData::default() });
 
         let sp1 = SwapLine {
-            path: SwapPath { tokens: vec![token.clone(), token.clone()], pools: vec![], disabled: false },
+            path: SwapPath {
+                tokens: vec![token.clone(), token.clone()],
+                pools: vec![],
+                disabled: false,
+                disabled_pool: Default::default(),
+                score: None,
+            },
             amount_in: SwapAmountType::Set(U256::from(10)),
             amount_out: SwapAmountType::Set(U256::from(20)),
             ..Default::default()
@@ -243,7 +255,13 @@ mod test {
         ready_requests.push(SwapComposeData { swap: Swap::BackrunSwapLine(sp1), ..SwapComposeData::default() });
 
         let sp2 = SwapLine {
-            path: SwapPath { tokens: vec![token.clone(), token.clone()], pools: vec![], disabled: false },
+            path: SwapPath {
+                tokens: vec![token.clone(), token.clone()],
+                pools: vec![],
+                disabled: false,
+                disabled_pool: Default::default(),
+                score: None,
+            },
             amount_in: SwapAmountType::Set(U256::from(3)),
             amount_out: SwapAmountType::Set(U256::from(5)),
             ..Default::default()

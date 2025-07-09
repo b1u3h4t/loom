@@ -18,8 +18,8 @@ fn create_pool(token0: Address, token1: Address) -> MockPool {
 fn test_market_fill() -> eyre::Result<()> {
     let mut market = Market::default();
     //let mut market2 = Market::default();
-    market.add_token(WETH.clone())?;
-    market.add_token(USDT.clone())?;
+    market.add_token(WETH.clone());
+    market.add_token(USDT.clone());
     let weth_usdt_pool = create_pool(WETH.get_address(), USDT.get_address());
     market.add_pool(weth_usdt_pool)?;
     let weth_usdt_pool = create_pool(WETH.get_address(), USDT.get_address());
@@ -35,7 +35,7 @@ fn test_market_fill() -> eyre::Result<()> {
         }
         market.add_pool(weth_pool)?;
         market.add_pool(usdt_pool)?;
-        let swap_paths = market.build_swap_path_vec(&btree)?;
+        let swap_paths = market.build_swap_path_vec(&btree).unwrap();
         market.add_paths(swap_paths);
     }
 
@@ -49,7 +49,7 @@ fn test_market_fill() -> eyre::Result<()> {
         }
         market.add_pool(weth_pool)?;
         market.add_pool(usdt_pool)?;
-        let swap_paths = market.build_swap_path_vec(&btree)?;
+        let swap_paths = market.build_swap_path_vec(&btree).unwrap();
         market.add_paths(swap_paths);
     }
     println!("{}", market);

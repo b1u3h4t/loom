@@ -74,6 +74,26 @@ impl TokenAddressAvalanche {
 }
 
 #[non_exhaustive]
+pub struct TokenAddressBsc;
+
+impl TokenAddressBsc {
+    pub const ETH_NATIVE: Address = Address::ZERO;
+    pub const WBNB: Address = address!("bb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c");
+    pub const USDC: Address = address!("8ac76a51cc950d9822d68b83fe1ad97b32cd580d");
+    pub const DAI: Address = address!("1af3f329e8be154074d8769d1ffa4ee058b1dbc3");
+    pub const USDT: Address = address!("55d398326f99059fF775485246999027B3197955");
+    pub const WETH: Address = address!("2170ed0880ac9a755fd29b2688956bd959f933f8");
+    pub const WBTC: Address = address!("0555e30da8f98308edb960aa94c0db47230d2b9c");
+
+    pub fn is_weth(&address: &Address) -> bool {
+        address.eq(&Self::WBNB)
+    }
+    pub fn is_eth(&address: &Address) -> bool {
+        address.eq(&Self::ETH_NATIVE)
+    }
+}
+
+#[non_exhaustive]
 pub struct FactoryAddress;
 
 impl FactoryAddress {

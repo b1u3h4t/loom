@@ -35,7 +35,7 @@ fn test_market_fill() -> eyre::Result<()> {
         }
         market.add_pool(weth_pool)?;
         market.add_pool(usdt_pool)?;
-        let swap_paths = market.build_swap_path_vec(&btree).unwrap();
+        let swap_paths = market.build_swap_path_vec(&btree)?;
         market.add_paths(swap_paths);
     }
 
@@ -49,7 +49,7 @@ fn test_market_fill() -> eyre::Result<()> {
         }
         market.add_pool(weth_pool)?;
         market.add_pool(usdt_pool)?;
-        let swap_paths = market.build_swap_path_vec(&btree).unwrap();
+        let swap_paths = market.build_swap_path_vec(&btree)?;
         market.add_paths(swap_paths);
     }
     println!("{}", market);

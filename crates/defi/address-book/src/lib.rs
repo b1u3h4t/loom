@@ -53,6 +53,27 @@ impl TokenAddressBase {
 }
 
 #[non_exhaustive]
+pub struct TokenAddressAvalanche;
+
+impl TokenAddressAvalanche {
+    pub const ETH_NATIVE: Address = Address::ZERO;
+    pub const WAVAX: Address = address!("B31f66AA3C1e785363F0875A1B74E27b85FD66c7");
+    pub const USDC: Address = address!("B97EF9Ef8734C71904D8002F8b6Bc66Dd9c48a6E");
+    pub const DAI: Address = address!("d586E7F844cEa2F87f50152665BCbc2C279D8d70");
+    pub const FRAX: Address = address!("D24C2Ad096400B6FBcd2ad8B24E7acBc21A1da64");
+    pub const USDT: Address = address!("9702230A8Ea53601f5cD2dc00fDBc13d4dF4A8c7");
+    pub const WBTC: Address = address!("50b7545627a5162F82A992c33b87aDc75187B218");
+    pub const WETH: Address = address!("49D5c2BdFfac6CE2BFdB6640F4F80f226bc10bAB");
+
+    pub fn is_weth(&address: &Address) -> bool {
+        address.eq(&Self::WAVAX)
+    }
+    pub fn is_eth(&address: &Address) -> bool {
+        address.eq(&Self::ETH_NATIVE)
+    }
+}
+
+#[non_exhaustive]
 pub struct FactoryAddress;
 
 impl FactoryAddress {

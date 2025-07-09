@@ -323,7 +323,7 @@ async fn main() -> Result<()> {
                 debug!("Loading curve pool");
                 if let Ok(curve_contract) = CurveProtocol::get_contract_from_code(client.clone(), pool_config.address).await {
                     let curve_pool = CurvePool::fetch_pool_data_with_default_encoder(client.clone(), curve_contract).await?;
-                    let _ = fetch_state_and_add_pool(client.clone(), market_instance.clone(), market_state.clone(), curve_pool.into()).await;
+                    fetch_state_and_add_pool(client.clone(), market_instance.clone(), market_state.clone(), curve_pool.into()).await?;
                 } else {
                     error!("CURVE_POOL_NOT_LOADED");
                 }
